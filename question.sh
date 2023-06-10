@@ -40,4 +40,5 @@
 #  2014-09-01,A,3,100.4
 #
 #  >>> Escriba su codigo a partir de este punto <<<
-#
+
+sed -E 's|([0-9]{2})/([0-9]{2})/([0-9]{2})|20\3-\2-\1|g ; s|([0-9]{1})/([0-9]{1})/(20[0-9]{2})|\3-0\2-0\1|; y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/; s|,|.|g; s|;|,|g; s|,N|,\\N|g; s|,,|,\\N,|; 5 s|$|\\N|; 7 s|$|\\N|' data.csv > output.csv
