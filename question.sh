@@ -41,3 +41,12 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+#sed -E 's|([0-9]{2})/([0-9]{2})/([0-9]{2})|20\3-\2-\1|g ; s|([0-9]{1})/([0-9]{1})/(20[0-9]{2})|\3-0\2-0\1|; s|[a-z]|\U&|g; s|,|.|g; s|;|,|g'
+
+#sed -e 's|([0-9]{2})/([0-9]{2})/([0-9]{2})|20\3-\2-\1|g' \ 
+#    -e 's|([0-9]{1})/([0-9]{1})/(20[0-9]{2})|\3-0\2-0\1|' \
+#    -e 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' \
+#    -e 's|,|.|g; s|;|,|g; s|,N|,\\N|g; s|,,|,\\N,|; 5 s|$|\\N|; 7 s|$|\\N|' \
+#    -e data.csv > output.csv Pablo es la Verga
+
+sed -E 's|([0-9]{2})/([0-9]{2})/([0-9]{2})|20\3-\2-\1|g ; s|([0-9]{1})/([0-9]{1})/(20[0-9]{2})|\3-0\2-0\1|; y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/; s|,|.|g; s|;|,|g; s|,N|,\\N|g; s|,,|,\\N,|; 5 s|$|\\N|; 7 s|$|\\N|' data.csv > output.csv
